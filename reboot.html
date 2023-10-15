@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Reboot Instance</title>
+</head>
+<body>
+  <form id="rebootForm" method="POST" action="/reboot">
+    <table>
+      <tr>
+        <th>IP 주소</th>
+        <th>위 치</th>
+        <th>메 모 리</th>
+        <th>이 름</th>
+        <th>상 태</th>
+        <th>생 성 일</th>
+      </tr>
+      <tr>
+        <td id="ip"></td>
+        <td id="location"></td>
+        <td id="memory"></td>
+        <td id="name"></td>
+        <td id="status"></td>
+        <td id="date_created"></td>
+        <td><button type="submit">Reboot Instance</button></td>
+      </tr>
+    </table>
+    <input type="text" name="instanceId" id="instanceId">
+  </form>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      fetch('/instanceInfo')
+        .then(function(response) {
+          if (response.ok) {
+            return response.json();
+          } else {
+            throw new Error('Failed to fetch instance information.');
+          }
+        })
+        .then(function(instance) {
+          document.getElementById('ip').textContent = instance.ip;
+          document.getElementById('location').textContent = instance.location;
+          document.getElementById('memory').textContent = instance.memory;
+          document.getElementById('name').textContent = instance.name;
+          document.getElementById('status').textContent = instance.status;
+          document.getElementById('date_created').textContent = instance.date_created;
+        })
+        .catch(function(error) {
+          console.error(error);
+          alert('Error fetching instance information.');
+        });
+    });
+
+    document.getElementById('rebootForm').addEventListener('submit', function(event) {
+      event.preventDefault(); // prevent the form from submitting normally
+      var instanceId = document.getElementById('instanceId').value;
+      fetch('/reboot', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ instanceId: instanceId })
+      })
+      .then(function(response) {
+        if (response.ok) {
+          alert('Instance reboot request sent.');
+        } else {
+          throw new Error('Failed to reboot instance.');
+        }
+      })
+      .catch(function(error) {
+        console.error(error);
+        alert('Error rebooting instance.');
+      });
+    });
+  </script>
+</body>
+</html>
