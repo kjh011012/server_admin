@@ -4,7 +4,7 @@ import path from 'path';
 import { fileURLToPath } from 'url';
 
 const app = express();
-const VULTR_API_KEY = 'WAFTXCFXTNDYUUOSENSWTXA4X23ZO5KOXY3Q';
+const VULTR_API_KEY = 'api key';
 
 async function getInstanceInfo(instanceId) {
   const response = await fetch(`https://api.vultr.com/v2/instances/${instanceId}`, {
