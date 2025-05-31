@@ -1,7 +1,7 @@
 import http from 'http';
 import fetch from 'node-fetch';
 
-const VULTR_API_KEY = 'WAFTXCFXTNDYUUOSENSWTXA4X23ZO5KOXY3Q';
+const VULTR_API_KEY = 'api key';
 const SERVER_PORT = 4441;
 const main_ip = ['64.176.44.62', '141.164.52.4','141.164.54.214','45.76.219.63', '149.28.31.38','167.179.106.209','141.164.36.22'];
 
