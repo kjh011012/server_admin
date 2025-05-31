@@ -47,7 +47,7 @@
 //       });
 //     });
 //   } else {  // 모든 인스턴스 데이터 반환 
-//     res.writeHead(200, { 'Content-Type':  'text/html; charset=utf-8' }); //하...........한글....
+//     res.writeHead(200, { 'Content-Type':  'text/html; charset=utf-8' }); 
 //     fetch('https://api.vultr.com/v2/instances', {
 //       method: 'GET',
 //       headers: {
