@@ -1,7 +1,7 @@
 // import http from 'http';
 // import fetch from 'node-fetch';
 
-// const VULTR_API_KEY = 'WAFTXCFXTNDYUUOSENSWTXA4X23ZO5KOXY3Q';
+// const VULTR_API_KEY = 'api key';
 // const SERVER_PORT = 4442;
 // const main_ip = ['198.13.56.188'];
 
