@@ -11,7 +11,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
 // Replace this with your MongoDB connection string
-const dbAddress = 'mongodb+srv://JkimH:wjdgns0428@cluster0.0yz15oz.mongodb.net/?retryWrites=true&w=majority';
+const dbAddress = 'mongodb+srv://user id:pw@cluster0.0yz15oz.mongodb.net/?retryWrites=true&w=majority';
 
 mongoose.connect(dbAddress, {
   useNewUrlParser: true,
